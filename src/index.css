@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.eq {
+  transition: 0.5s cubic-bezier(0.31, 0.51, 0.89, 0.68);
+}

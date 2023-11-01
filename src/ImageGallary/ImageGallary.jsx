@@ -70,11 +70,11 @@ const ImageGallary = () => {
   };
   return (
     <Container>
-      <div className="grid grid-cols-4  gap-4">
+      <div className="grid grid-cols-4  gap-4 border-2 border-gray-100 m-2 p-2 shadow-lg">
         {images.map((image) => (
           <div
             key={image.id}
-            className={`border p-2 ${
+            className={`border p-2 group/item shadow-sm relative ${
               image.isFeatured ? "lg:col-span-2 row-span-2" : ""
             }`}
             draggable
@@ -82,6 +82,10 @@ const ImageGallary = () => {
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, image)}>
             <picture>
+              <div className="absolute  ease-in-out duration-300 opacity-0 group-hover/item:opacity-100 top-0 bottom-0 right-0 left-0 bg-black/25">
+                <input type="checkbox" name="c" id="c" className="m-3" />
+              </div>
+
               <source srcSet={image.src} type="image/webp" />
               <img
                 src={image.src.replace(".webp", ".jpg")} // Provide a fallback image format (e.g., JPEG)
