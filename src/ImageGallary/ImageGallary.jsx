@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ImCheckboxChecked } from "react-icons/im";
 import image1 from "../assets/images/image-1.webp";
 import image10 from "../assets/images/image-10.jpeg";
 import image11 from "../assets/images/image-11.jpeg";
@@ -61,7 +60,7 @@ const ImageGallary = () => {
             selectedImgesId.length > 0 ? "opacity-1" : "opacity-0"
           }`}>
           <div className="flex gap-3 items-center">
-            <ImCheckboxChecked size={24} color="blue" />
+            <ImCheckboxCheckeds size={24} color="blue" />
             <p className="text-2xl font-semibold">
               {selectedImgesId.length} selected
             </p>
