@@ -10,6 +10,7 @@ import image6 from "../assets/images/image-6.webp";
 import image7 from "../assets/images/image-7.webp";
 import image8 from "../assets/images/image-8.webp";
 import image9 from "../assets/images/image-9.webp";
+import { ImCheckboxChecked } from 'react-icons/im';
 import Container from "../components/Container";
 import SingleImage from "./SingleImage/SingleImage";
 const ImageGallary = () => {
@@ -60,9 +61,9 @@ const ImageGallary = () => {
             selectedImgesId.length > 0 ? "opacity-1" : "opacity-0"
           }`}>
           <div className="flex gap-3 items-center">
-            <ImCheckboxCheckeds size={24} color="blue" />
+            <ImCheckboxChecked size={24} color="blue" />
             <p className="text-2xl font-semibold">
-              {selectedImgesId.length} selected
+              {selectedImgesId.length} {selectedImgesId.length >1 ? "files":"file"} selected
             </p>
           </div>
 
