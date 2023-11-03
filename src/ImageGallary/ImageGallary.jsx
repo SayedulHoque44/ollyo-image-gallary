@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ImCheckboxChecked } from "react-icons/im";
 import image1 from "../assets/images/image-1.webp";
 import image10 from "../assets/images/image-10.jpeg";
 import image11 from "../assets/images/image-11.jpeg";
@@ -13,6 +14,7 @@ import image9 from "../assets/images/image-9.webp";
 import Container from "../components/Container";
 import SingleImage from "./SingleImage/SingleImage";
 const ImageGallary = () => {
+  // State
   const [images, setImages] = useState([
     { id: 1, src: image1, isFeatured: true },
     { id: 2, src: image2, isFeatured: false },
@@ -27,10 +29,10 @@ const ImageGallary = () => {
     { id: 11, src: image11, isFeatured: false },
     // Add more images here
   ]);
-
   const [selectedImgesId, setSelectedImagesId] = useState([]);
   const [draggedImage, setDraggedImage] = useState(null);
-  //
+
+  //Make Image Featured
   const handleFeatureImage = (imageId) => {
     const updatedImages = images.map((image) => {
       if (image.id === imageId) {
@@ -42,7 +44,7 @@ const ImageGallary = () => {
     });
     setImages(updatedImages);
   };
-  //
+  //Delete Images
   const handleDeleteImages = () => {
     const updatedImages = images.filter(
       (image) => !selectedImgesId.includes(image.id)
@@ -54,15 +56,16 @@ const ImageGallary = () => {
   // console.log(selectedImgesId);
   return (
     <Container>
-      <div className="shadow-lg border-2 border-gray-100 p-5">
+      <div className="shadow-lg border-2 border-gray-100 p-5 my-5">
         <div
           className={`flex justify-between ease-in-out duration-300 items-center ${
             selectedImgesId.length > 0 ? "opacity-1" : "opacity-0"
           }`}>
           <div className="flex gap-3 items-center">
-            <ImCheckboxCheckeds size={24} color="blue" />
+            <ImCheckboxChecked size={24} color="blue" />
             <p className="text-2xl font-semibold">
-              {selectedImgesId.length} selected
+              {selectedImgesId.length}
+              {selectedImgesId.length > 1 ? " files" : " file"} selected
             </p>
           </div>
 
@@ -73,7 +76,10 @@ const ImageGallary = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4  gap-4  m-2 p-3 ">
+        {images.length === 0 && (
+          <p className="text-xl font-medium text-red-400">No Products Found</p>
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5  gap-4  m-2 p-3 ">
           {images.map((image) => (
             //we can use context provider to ignor the props drilling
             <SingleImage

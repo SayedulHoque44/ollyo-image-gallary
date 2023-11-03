@@ -95,7 +95,7 @@ const SingleImage = ({
     <div
       key={image.id}
       className={`border p-2 group/item shadow-sm relative cursor-pointer ${
-        image.isFeatured ? "lg:col-span-2 row-span-2" : ""
+        image.isFeatured ? "sm:col-span-2 row-span-2" : ""
       }`}
       draggable
       onDragStart={(e) => handleDragStart(e, image)}
@@ -106,7 +106,7 @@ const SingleImage = ({
           className={`absolute ${
             isCheked(image.id)
               ? "opacity-1 bg-white/60"
-              : "group-hover/item:opacity-100 opacity-0 bg-black/25"
+              : "group-hover/item:opacity-100 opacity-0 bg-black/50"
           }  ease-in-out duration-300   top-0 bottom-0 right-0 left-0 `}>
           <input
             type="checkbox"
