@@ -12,6 +12,7 @@ import image7 from "../assets/images/image-7.webp";
 import image8 from "../assets/images/image-8.webp";
 import image9 from "../assets/images/image-9.webp";
 import Container from "../components/Container";
+import AddImage from "./AddImage/AddImage";
 import SingleImage from "./SingleImage/SingleImage";
 const ImageGallary = () => {
   // State
@@ -93,6 +94,7 @@ const ImageGallary = () => {
               selectedImgesId={selectedImgesId}
             />
           ))}
+          <AddImage />
         </div>
       </div>
     </Container>

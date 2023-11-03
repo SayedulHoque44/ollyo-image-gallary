@@ -93,7 +93,6 @@ const SingleImage = ({
   //
   return (
     <div
-      key={image.id}
       className={`border p-2 group/item shadow-sm relative cursor-pointer ${
         image.isFeatured ? "sm:col-span-2 row-span-2" : ""
       }`}
