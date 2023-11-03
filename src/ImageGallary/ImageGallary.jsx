@@ -64,8 +64,7 @@ const ImageGallary = () => {
           <div className="flex gap-3 items-center">
             <ImCheckboxChecked size={24} color="blue" />
             <p className="text-2xl font-semibold">
-              {selectedImgesId.length}
-              {selectedImgesId.length > 1 ? " files" : " file"} selected
+              {selectedImgesId.length} selected
             </p>
           </div>
 
