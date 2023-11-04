@@ -119,11 +119,13 @@ const SingleImage = ({
             className="m-3 h-5 w-5"
           />
           {/* Feature add */}
-          <div
-            className="bg-blue-500 absolute bottom-0 right-0 left-0 text-white p-2 text-center cursor-pointer"
-            onClick={() => handleFeatureImage(image.id)}>
-            Set as Feature
-          </div>
+          {!image.isFeatured && !isCheked(image.id) && (
+            <div
+              className="bg-blue-500 absolute bottom-0 right-0 left-0 text-white p-2 text-center cursor-pointer"
+              onClick={() => handleFeatureImage(image.id)}>
+              Set as Feature
+            </div>
+          )}
         </div>
 
         {/* image webp/jpeg */}
