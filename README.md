@@ -1,4 +1,4 @@
-# (Image gallary)[https://ollyo-image-gallary.web.app/]
+# [Image gallary](https://ollyo-image-gallary.web.app/)
 
 - Used Technolgy (React - React Icons - React Router - Tailwind Css)
 
