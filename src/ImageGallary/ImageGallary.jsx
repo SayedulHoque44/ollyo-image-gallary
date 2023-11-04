@@ -58,6 +58,7 @@ const ImageGallary = () => {
   return (
     <Container>
       <div className="shadow-lg border-2 border-gray-100 p-5 my-5">
+        {/* top side */}
         <div
           className={`flex justify-between ease-in-out duration-300 items-center ${
             selectedImgesId.length > 0 ? "opacity-1" : "opacity-0"
@@ -69,18 +70,20 @@ const ImageGallary = () => {
               {selectedImgesId.length > 1 ? " files" : " file"} selected
             </p>
           </div>
-
+          {/* Delete Files */}
           <button
             onClick={handleDeleteImages}
             className=" bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
             Delete {selectedImgesId.length > 1 ? "files" : "file"}
           </button>
         </div>
-
+        {/* Empty products */}
         {images.length === 0 && (
           <p className="text-xl font-medium text-red-400">No Products Found</p>
         )}
+        {/* gallary */}
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5  gap-4  m-2 p-3 ">
+          {/* Images */}
           {images.map((image) => (
             //we can use context provider to ignor the props drilling
             <SingleImage
@@ -95,6 +98,7 @@ const ImageGallary = () => {
               selectedImgesId={selectedImgesId}
             />
           ))}
+          {/* Add Image */}
           <AddImage />
         </div>
       </div>

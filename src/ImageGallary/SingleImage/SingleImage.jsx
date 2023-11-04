@@ -45,6 +45,7 @@ const SingleImage = ({
         setDraggedImage(null);
         return;
       } else if (updatedImages[draggedIndex].isFeatured) {
+        // is dragged image is featured
         updatedImages[draggedIndex].isFeatured = false;
         updatedImages[targetIndex].isFeatured = true;
         [updatedImages[draggedIndex], updatedImages[targetIndex]] = [
@@ -55,6 +56,7 @@ const SingleImage = ({
         setDraggedImage(null);
         return;
       } else {
+        // other ordering
         [updatedImages[draggedIndex], updatedImages[targetIndex]] = [
           updatedImages[targetIndex],
           updatedImages[draggedIndex],
@@ -101,12 +103,14 @@ const SingleImage = ({
       onDragOver={handleDragOver}
       onDrop={(e) => handleDrop(e, image)}>
       <picture>
+        {/* Hover effect */}
         <div
           className={`absolute ${
             isCheked(image.id)
               ? "opacity-1 bg-white/60"
               : "group-hover/item:opacity-100 opacity-0 bg-black/50"
           }  ease-in-out duration-300   top-0 bottom-0 right-0 left-0 `}>
+          {/* Select image */}
           <input
             type="checkbox"
             onChange={(e) => handleChecked(e, image.id)}
@@ -114,6 +118,7 @@ const SingleImage = ({
             id="select"
             className="m-3 h-5 w-5"
           />
+          {/* Feature add */}
           <div
             className="bg-blue-500 absolute bottom-0 right-0 left-0 text-white p-2 text-center cursor-pointer"
             onClick={() => handleFeatureImage(image.id)}>
@@ -121,6 +126,7 @@ const SingleImage = ({
           </div>
         </div>
 
+        {/* image webp/jpeg */}
         <source srcSet={image.src} type="image/webp" />
         <img
           src={image.src.replace(".webp", ".jpg")} // Provide a fallback image format (e.g., JPEG)
